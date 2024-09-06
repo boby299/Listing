@@ -9,6 +9,6 @@ async def build(title, description, color):
         description=f"{description}",
         color=color
         )
-    # embed.set_footer(text='Made by interceptic', icon_url='https://avatars.githubusercontent.com/u/121205983?s=400&u=e5e1ec3c308a713e198f46aff29038bc4dca1d9d&v=4')
+    # embed.set_footer(text='SB Shop Bot', icon_url='https://cdn.discordapp.com/avatars/1276317106819825746/01a3154bc42012e945828e266c7ace51.webp?size=80')
     # embed.timestamp = datetime.datetime.now()
     return embed
