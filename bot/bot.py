@@ -39,7 +39,7 @@ async def value(ctx, name: str):
         description=f"Obtaining data from api, please wait...",
         color=0xFF007B
     )
-    embed.set_footer(text='Made by interceptic', icon_url='https://avatars.githubusercontent.com/u/121205983?s=400&u=e5e1ec3c308a713e198f46aff29038bc4dca1d9d&v=4')
+    embed.set_footer(text='SB Trades Bot', icon_url='https://cdn.discordapp.com/avatars/1276317106819825746/01a3154bc42012e945828e266c7ace51.webp?size=80')
     embed.timestamp = datetime.datetime.now()
     await ctx.respond(embed=embed)
     try:
@@ -204,7 +204,7 @@ async def on_application_command_autocomplete(ctx:discord.AutocompleteContext):
 async def on_member_ban(guild, user):
     try:
         dm = await user.create_dm()
-        await dm.send(f'You have been banned from {guild.name}. Were you scammed? - if so, create a support ticket here: https://discord.gg/scammerlist')
+        await dm.send(f'You have been banned from {guild.name}. Were you scammed by a seller? - if so, contact me and show proof ty')
     except Exception as error:
         print('Ban:', error)
 
@@ -242,7 +242,7 @@ async def delete(ctx, account: discord.Option(str, "Choose an Account", autocomp
                 
 
 @bot.slash_command(name='buy', description='Purchase an Account / Profile')
-async def buy(ctx, payment_method: discord.Option(str, "Choose a Payment Method", choices=["Cashapp", "Venmo", "Paypal", "LTC", "BTC", "Gift Card", "Other"]), account: discord.Option(str, "Choose what to buy", autocomplete=on_application_command_autocomplete)=None, coins: int=None):
+async def buy(ctx, payment_method: discord.Option(str, "Choose a Payment Method", choices=["Paypal", "LTC", "BTC", "Gift Card", "Other"]), account: discord.Option(str, "Choose what to buy", autocomplete=on_application_command_autocomplete)=None, coins: int=None):
     await ctx.defer(ephemeral=True)
     guild = await guild_in_db(ctx)
     if not guild:
@@ -459,7 +459,7 @@ async def offer(ctx,account: discord.Option(str, "Choose what to buy", autocompl
     await handle_offers(ctx, account, offer, payment_method, clear, bot)
     
 @bot.slash_command(name="sell", description="Sell an Account / Profile")
-async def sell(ctx, payment_method: discord.Option(str, "Choose a Payment Method", choices=["Cashapp", "Venmo", "Paypal", "LTC", "BTC", "Gift Card", "Other"]), account: str=None, price: int=None, coins: int=None):
+async def sell(ctx, payment_method: discord.Option(str, "Choose a Payment Method", choices=["Paypal", "LTC", "BTC", "Gift Card", "Other"]), account: str=None, price: int=None, coins: int=None):
     await ctx.defer(ephemeral=True)
     guild = await guild_in_db(ctx)
     if not guild:
